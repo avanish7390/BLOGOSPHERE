@@ -22,7 +22,7 @@ export default function CreatePost() {
 
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
-const years = Array.from({ length: currentYear - 2019 }, (_, i) => currentYear - i);
+const years = Array.from({ length: currentYear - 2015 }, (_, i) => currentYear - i);
 
   const handleUpdloadImage = async () => {
     try {
@@ -109,10 +109,11 @@ const years = Array.from({ length: currentYear - 2019 }, (_, i) => currentYear -
           >
             <option value='uncategorized'>Select a category</option>
             <option value='javascript'>Placement</option>
-            <option value='reactjs'>Event</option>
-            <option value='nextjs'>workshop</option>
-            <option value='nextjs'>seminar</option>
-            <option value='nextjs'>Industry visit</option>
+            <option value='event'>Event</option>
+            <option value='workshop'>workshop</option>
+            <option value='seminar'>seminar</option>
+            <option value='industry'>Industry visit</option>
+            <option value='topper'>Topper</option>
           
           </Select>
           <Select
