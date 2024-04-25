@@ -108,12 +108,12 @@ const years = Array.from({ length: currentYear - 2015 }, (_, i) => currentYear -
             }
           >
             <option value='uncategorized'>Select a category</option>
-            <option value='javascript'>Placement</option>
-            <option value='event'>Event</option>
-            <option value='workshop'>workshop</option>
+            <option value='Placement'>Placement</option>
+            <option value='Event'>Event</option>
+            <option value='Workshop'>workshop</option>
             <option value='seminar'>seminar</option>
-            <option value='industry'>Industry visit</option>
-            <option value='topper'>Topper</option>
+            <option value='Industry visit'>Industry visit</option>
+            <option value='Topper'>Topper</option>
           
           </Select>
           <Select
@@ -122,9 +122,9 @@ const years = Array.from({ length: currentYear - 2015 }, (_, i) => currentYear -
             }
           >
             <option value='uncategorized'>Select course</option>
-            <option value='btech'>B.Tech</option>
-            <option value='mtech'>M.Tech</option>
-            <option value='mba'>MBA</option>
+            <option value='B.Tech'>B.Tech</option>
+            <option value='M.Tech'>M.Tech</option>
+            <option value='MBA'>MBA</option>
           </Select>
           <Select
             onChange={(e) =>
@@ -132,11 +132,11 @@ const years = Array.from({ length: currentYear - 2015 }, (_, i) => currentYear -
             }
           >
             <option value='uncategorized'>Select  Branch</option>
-            <option value='cse'>Computer Science and Engineering</option>
-            <option value='me'>Mechanical Engineering</option>
-            <option value='ce'>Civil Engineering</option>
-            <option value='ee'> Electrical Engineering  </option>
-            <option value='bt'> Biotechnology Engineering  </option>
+            <option value='Computer Science and Engineering'>Computer Science and Engineering</option>
+            <option value='Mechanical Engineering'>Mechanical Engineering</option>
+            <option value='Civil Engineering'>Civil Engineering</option>
+            <option value='Electrical Engineering'> Electrical Engineering  </option>
+            <option value='Biotechnology Engineering'> Biotechnology Engineering  </option>
             
           </Select>
                   <Select
