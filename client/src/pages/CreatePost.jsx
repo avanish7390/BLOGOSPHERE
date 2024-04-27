@@ -21,8 +21,9 @@ export default function CreatePost() {
   const [publishError, setPublishError] = useState(null);
 
   const navigate = useNavigate();
-  const currentYear = new Date().getFullYear();
-const years = Array.from({ length: currentYear - 2015 }, (_, i) => currentYear - i);
+
+ 
+  
 
   const handleUpdloadImage = async () => {
     try {
@@ -119,12 +120,13 @@ const years = Array.from({ length: currentYear - 2015 }, (_, i) => currentYear -
           <Select
             onChange={(e) =>
               setFormData({ ...formData, course: e.target.value })
-            }
+            } 
           >
             <option value='uncategorized'>Select course</option>
             <option value='B.Tech'>B.Tech</option>
             <option value='M.Tech'>M.Tech</option>
             <option value='MBA'>MBA</option>
+            
           </Select>
           <Select
             onChange={(e) =>
@@ -139,18 +141,16 @@ const years = Array.from({ length: currentYear - 2015 }, (_, i) => currentYear -
             <option value='Biotechnology Engineering'> Biotechnology Engineering  </option>
             
           </Select>
-                  <Select
-                        onChange={(e) =>
-                         setFormData({ ...formData, year: e.target.value })
-                             }
-                               >
-                      <option value='uncategorized'>Select Year</option>
-                             {years.map((year) => (
-                      <option key={year} value={year}>
-                    {year}
-                    </option>
-                      ))}
-          </Select>
+          <TextInput
+            type='text'
+            placeholder='DD/MM/YYYY'
+            required
+            id='DD/MM/YYYY'
+            className='flex-2'
+            onChange={(e) =>
+              setFormData({ ...formData, year: e.target.value })
+            }
+          />
           </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
           <FileInput
