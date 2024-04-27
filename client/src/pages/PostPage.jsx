@@ -58,7 +58,7 @@ export default function PostPage() {
       </div>
     );
   return (
-    <main className='p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
+    <main className='p-3 flex flex-col max-w-8xl mx-auto min-h-screen'>
       <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
         {post && post.title}
       </h1>
@@ -95,12 +95,13 @@ export default function PostPage() {
           {post && post.year}
         </Button>
       </Link>
+               <img
+                   src={post && post.image}
+                       alt={post && post.title}
+                       className='mt-10 p-3 max-h-[600px] w-full object-cover object-center h-auto'
+                           />
 
-      <img
-        src={post && post.image}
-        alt={post && post.title}
-        className='mt-10 p-3 max-h-[600px] w-full object-cover'
-      />
+    
       <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs'>
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
         <span className='italic'>
@@ -118,8 +119,8 @@ export default function PostPage() {
 
       <div className='flex flex-col justify-center items-center mb-5'>
         <h1 className='text-xl mt-5'>RECENT POST</h1>
-        <div className='flex-wrap flex gap-5 mt-5 justify-center'>
-          {recentPosts &&
+        <div className='flex-wrap flex gap-5 mt-5 justify-center lg:pl-32 md:grid-cols-2 '>
+          {recentPosts &&  
             recentPosts.map((post) => <PostCard key={post._id} post={post} />)}
         </div>
       </div>
