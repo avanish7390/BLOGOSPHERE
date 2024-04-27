@@ -13,5 +13,7 @@ export default {
   },
   plugins: [
     flowbite.plugin(),
+   
+   
   ],
 }
