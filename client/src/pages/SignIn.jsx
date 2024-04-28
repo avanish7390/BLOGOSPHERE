@@ -57,7 +57,7 @@ export default function SignIn() {
         SPHERE
        </Link>
        <p className="text-sm mt-5">
-        This project is a blog website that allows users to create, read, update, and delete blog posts. The project is built using the MERN stack (MongoDB, Express, React, Node.js). The project is hosted on Heroku and Netlify. The project is open source and the code is available on GitHub.
+       This project is a blog website that allows users to create, read, update, and delete placement, event, toppers and webinars. The project is built using the MERN stack (MongoDB, Express, React, Node.js). It is hosted on render. The project is open source, and the code is available on GitHub.
        </p>
         </div>
 
