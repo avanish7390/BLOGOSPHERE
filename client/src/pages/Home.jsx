@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import CallToAction from '../components/CallToAction';
+//import CallToAction from '../components/CallToAction';
 import PostCard from '../components/PostCard';
 
 export default function Home() {

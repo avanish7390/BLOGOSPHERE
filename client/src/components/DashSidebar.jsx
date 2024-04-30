@@ -1,17 +1,17 @@
 import { Sidebar } from 'flowbite-react';
+import { useEffect, useState } from 'react';
 import {
-  HiUser,
+  HiAnnotation,
   HiArrowSmRight,
+  HiChartPie,
   HiDocumentText,
   HiOutlineUserGroup,
-  HiAnnotation,
-  HiChartPie,
+  HiUser,
 } from 'react-icons/hi';
-import { useEffect, useState } from 'react';
+import { IoIosCreate } from "react-icons/io";
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 
 export default function DashSidebar() {
   const location = useLocation();
@@ -66,6 +66,17 @@ export default function DashSidebar() {
               Profile
             </Sidebar.Item>
           </Link>
+          {currentUser.isAdmin && (
+          <Link to='/create-post'>
+                <Sidebar.Item
+                  active={tab === 'create-post'}
+                  icon={IoIosCreate }
+                  as='div'
+                >
+                  Create post
+                </Sidebar.Item>
+              </Link>
+          )}
           {currentUser.isAdmin && (
             <Link to='/dashboard?tab=posts'>
               <Sidebar.Item
