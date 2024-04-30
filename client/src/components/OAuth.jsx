@@ -1,42 +1,62 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { Button } from 'flowbite-react';
 import { AiFillGoogleCircle } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
 import { app } from '../firebase';
+import { useDispatch } from 'react-redux';
 import { signInSuccess } from '../redux/user/userSlice';
+import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 
 export default function OAuth() {
-    const auth = getAuth(app)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const handleGoogleClick = async () =>{
-        const provider = new GoogleAuthProvider()
-        provider.setCustomParameters({ prompt: 'select_account' })
+    const auth = getAuth(app);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const handleGoogleClick = async () => {
+        setLoading(true);
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+
         try {
-            const resultsFromGoogle = await signInWithPopup(auth, provider)
-            const res = await fetch('/api/auth/google', {
+            const result = await signInWithPopup(auth, provider);
+            const { user } = result;
+
+            const userData = {
+                name: user.displayName,
+                email: user.email,
+                googlePhotoUrl: user.photoURL,
+            };
+
+            const response = await fetch('/api/auth/google', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: resultsFromGoogle.user.displayName,
-                    email: resultsFromGoogle.user.email,
-                    googlePhotoUrl: resultsFromGoogle.user.photoURL,
-                }),
-                })
-            const data = await res.json()
-            if (res.ok){
-                dispatch(signInSuccess(data))
-                navigate('/')
+                body: JSON.stringify(userData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to authenticate with the server');
             }
+
+            const responseData = await response.json();
+            dispatch(signInSuccess(responseData));
+            navigate('/');
         } catch (error) {
-            console.log(error);
+            console.error('Authentication Error:', error);
+            // Handle error here, e.g., display an error message to the user
+        } finally {
+            setLoading(false);
         }
-    } 
-  return (
-    <Button type='button' gradientDuoTone='pinkToOrange' outline onClick={handleGoogleClick}>
-        <AiFillGoogleCircle className='w-6 h-6 mr-2'/>
-        Continue with Google
-    </Button>
-  )
+    };
+
+    return (
+        <Button type="button" gradientDuoTone="pinkToOrange" outline onClick={handleGoogleClick} disabled={loading}>
+            {loading ? 'Loading...' : (
+                <>
+                    <AiFillGoogleCircle className="w-6 h-6 mr-2" />
+                    Continue with Google
+                </>
+            )}
+        </Button>
+    );
 }
