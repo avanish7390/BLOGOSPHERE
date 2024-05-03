@@ -74,6 +74,7 @@ export default function PostPage() {
         to={`/search?course=${post && post.course}`}
         className='self-center mt-5'
       >
+
         <Button color='gray' pill size='xs'>
           {post && post.course}
         </Button>
@@ -86,6 +87,7 @@ export default function PostPage() {
           {post && post.branch}
         </Button>
       </Link>
+      
       
       <Link
         to={`/search?year=${post && post.year}`}
