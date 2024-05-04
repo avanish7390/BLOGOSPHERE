@@ -100,7 +100,6 @@ export default function CreatePost() {
               setFormData({ ...formData, title: e.target.value })
             }
           />
-
         </div>
           <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <Select
