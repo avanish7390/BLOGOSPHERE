@@ -139,6 +139,7 @@ export default function UpdatePost() {
           <option value='seminar'>seminar</option>
           <option value='Industry visit'>Industry visit</option>
           <option value='Topper'>Topper</option>
+          <option value='Internal Exam'>Internal Exam</option>
         
         </Select>
         <Select
