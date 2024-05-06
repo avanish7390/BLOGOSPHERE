@@ -103,6 +103,7 @@ export default function CreatePost() {
         </div>
           <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <Select
+          
             onChange={(e) =>
               setFormData({ ...formData, category: e.target.value })
             }
@@ -119,6 +120,7 @@ export default function CreatePost() {
           
           </Select>
           <Select
+          required
             onChange={(e) =>
               setFormData({ ...formData, course: e.target.value })
             } 
@@ -131,8 +133,9 @@ export default function CreatePost() {
           </Select>
           <Select
             onChange={(e) =>
-              setFormData({ ...formData, branch: e.target.value })
+              setFormData({ ...formData, branch: e.target.value } )
             }
+            
           >
             <option value='uncategorized'>Select  Branch</option>
             <option value='Computer Science and Engineering'>Computer Science and Engineering</option>
@@ -143,7 +146,7 @@ export default function CreatePost() {
             
           </Select>
           <TextInput
-            type='text'
+            type='date'
             placeholder='DD/MM/YYYY'
             required
             id='DD/MM/YYYY'

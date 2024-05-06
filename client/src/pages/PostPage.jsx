@@ -50,6 +50,19 @@ export default function PostPage() {
       console.log(error.message);
     }
   }, []);
+  const handleImageDownload = () => {
+    try {
+      const link = document.createElement('a');
+      link.href = post.image;
+      link.setAttribute('download', 'post_image.jpg');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading image:', error);
+    }
+  };
+
 
   if (loading)
     return (
@@ -100,12 +113,17 @@ export default function PostPage() {
                <img
                    src={post && post.image}
                        alt={post && post.title}
-                       className='mt-10 p-3 max-h-[600px] w-full object-cover object-center h-auto'
+                       className='mt-10 p-3 max-h-[600px] w-full object-cover'
                            />
 
     
       <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs'>
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
+         {/* Other post content */}
+
+      <Button onClick={handleImageDownload} className='self-center mt-5' color='gray' pill size='xs'>
+        Download Image
+      </Button>
         <span className='italic'>
           {post && (post.content.length / 1000).toFixed(0)} mins read
         </span>
@@ -118,6 +136,7 @@ export default function PostPage() {
         <CallToAction />
       </div> */}
       <CommentSection postId={post._id} />
+      
 
       <div className='flex flex-col justify-center items-center mb-5'>
         <h1 className='text-xl mt-5'>RECENT POST</h1>

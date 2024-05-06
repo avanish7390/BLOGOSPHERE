@@ -26,16 +26,16 @@ const postSchema = new mongoose.Schema(
     },
     course: {
         type: String,
-        default: 'uncategorized',
+        default: 'No-course',
       },
       branch: {
         type: String,
-        default: 'uncategorized',
+        default: 'No-branch',
       },
       
       year: {
         type: String,
-        default: 'uncategorized',
+        default: 'No-Date',
       },
 
     slug: {
