@@ -1,4 +1,4 @@
-import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
+import { Alert, Button,Spinner } from 'flowbite-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import OAuth from '../components/OAuth';
@@ -66,7 +66,7 @@ export default function SignUp() {
                 onChange={handleChange}
               />
             </div> */}
-            <div>
+            {/* <div>
               <Label value='Your email' />
               <TextInput
                 type='email'
@@ -74,8 +74,8 @@ export default function SignUp() {
                 id='email'
                 onChange={handleChange}
               />
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               <Label value='Your password' />
               <TextInput
                 type='password'
@@ -83,7 +83,7 @@ export default function SignUp() {
                 id='password'
                 onChange={handleChange}
               />
-            </div>
+            </div> */}
             <Button
               gradientDuoTone='purpleToPink'
               type='submit'
