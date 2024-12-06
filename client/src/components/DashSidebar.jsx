@@ -67,7 +67,7 @@ export default function DashSidebar() {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-          <Link to='/create-post'>
+          <Link to='/dashboard?tab=create-post'>
                 <Sidebar.Item
                   active={tab === 'create-post'}
                   icon={IoIosCreate }
